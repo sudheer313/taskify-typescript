@@ -4,6 +4,7 @@ import TaskForm from '../TaskForm/TaskForm';
 
 interface TaskListProps {
   tasks: { id: string; title: string }[];
+  onRemoveTask: (id: string) => void;
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
