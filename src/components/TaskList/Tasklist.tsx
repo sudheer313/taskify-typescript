@@ -26,7 +26,7 @@ const TaskList: React.FC<TaskListProps> = ({
             <TaskItem
               title={task.title}
               onRemove={() => handleRemove(task.id)}
-              onModify={() => onModifyTask(task.id, "New Title")} // Change prop name and pass newTitle
+              onModify={(newTitle) => onModifyTask(task.id, newTitle)}
             />
           </li>
         ))}
