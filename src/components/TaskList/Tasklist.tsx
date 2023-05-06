@@ -5,12 +5,17 @@ import TaskForm from "../TaskForm/TaskForm";
 interface TaskListProps {
   tasks: { id: string; title: string }[];
   onRemoveTask: (id: string) => void;
+  onModifyTask: (id: string, newTitle: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks,onRemoveTask }) => {
+const TaskList: React.FC<TaskListProps> = ({
+  tasks,
+  onRemoveTask,
+  onModifyTask,
+}) => {
+  // Implement task removal logic
   const handleRemove = (id: string) => {
     onRemoveTask(id);
-    // Implement task removal logic
   };
 
   return (
@@ -21,6 +26,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks,onRemoveTask }) => {
             <TaskItem
               title={task.title}
               onRemove={() => handleRemove(task.id)}
+              onModify={() => onModifyTask(task.id, "New Title")} // Change prop name and pass newTitle
             />
           </li>
         ))}

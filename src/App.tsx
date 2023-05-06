@@ -18,11 +18,16 @@ const App:React.FC = () =>{
   const removeTask=(id:string)=>{
     setTasks((prevTask)=>prevTask.filter((task)=>task.id!==id))
   }
+  const modifyTask = (id: string, newTitle: string) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => (task.id === id ? { ...task, title: newTitle } : task))
+    );
+  };
   return (
     <div >
       <h1>WElcome to Taskify</h1>
       <TaskForm onAddTask={addTask}/>
-      <TaskList tasks={tasks} onRemoveTask={removeTask}/>
+      <TaskList tasks={tasks} onRemoveTask={removeTask} onModifyTask={modifyTask}/>
    </div>
 
   );
