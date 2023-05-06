@@ -7,9 +7,9 @@ interface TaskListProps {
   onRemoveTask: (id: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks,onRemoveTask }) => {
   const handleRemove = (id: string) => {
-    console.log("Remove task with id:", id);
+    onRemoveTask(id);
     // Implement task removal logic
   };
 
