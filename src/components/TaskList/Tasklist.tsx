@@ -1,6 +1,6 @@
 import React from "react";
 import TaskItem from "../TaskItem/TaskItem";
-import TaskForm from '../TaskForm/TaskForm';
+import TaskForm from "../TaskForm/TaskForm";
 
 interface TaskListProps {
   tasks: { id: string; title: string }[];
@@ -15,9 +15,16 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
 
   return (
     <div>
-      {tasks.map((task) => (
-        <TaskItem key={task.id} title={task.title} onRemove={() => handleRemove(task.id)} />
-      ))}
+      <ol>
+        {tasks.map((task) => (
+          <li key={task.id}>
+            <TaskItem
+              title={task.title}
+              onRemove={() => handleRemove(task.id)}
+            />
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };
